@@ -19,9 +19,9 @@ It integrates **Redis** for key/value storage, **Elasticsearch** for parent-chil
 
 ## Architecture
 Client → API (Node.js/Express)
-├─ Redis (key/value store)
-├─ Elasticsearch (search + parent-child indexing)
-└─ RabbitMQ (async indexing workflow)
+- Redis (key/value store)
+- Elasticsearch (search + parent-child indexing)
+- RabbitMQ (async indexing workflow)
 
 
 ## Tech Stack
@@ -48,8 +48,6 @@ ELASTICSEARCH_URL=http://localhost:9200
 RABBITMQ_URL=amqp://localhost
 GOOGLE_CLIENT_ID=<your-client-id>
 GOOGLE_CLIENT_SECRET=<your-client-secret>
-
-
 
 ## API Usage
 
