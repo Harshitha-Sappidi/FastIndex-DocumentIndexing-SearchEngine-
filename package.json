@@ -1,0 +1,26 @@
+{
+  "name": "assignment-1",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@elastic/elasticsearch": "^8.17.1",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "amqplib": "^0.10.7",
+    "axios": "^1.7.9",
+    "body-parser": "^1.20.3",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "redis": "^4.7.0"
+  }
+}

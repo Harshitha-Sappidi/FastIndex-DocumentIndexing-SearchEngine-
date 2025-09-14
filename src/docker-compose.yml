@@ -1,0 +1,42 @@
+version: '3.0'
+
+services:
+  elasticsearch:
+    container_name: elastic-container
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
+    restart: always
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+    ports:
+      - '9200:9200'
+    networks:
+      - ek-net
+
+  kibana:
+    container_name: kibana-container
+    image: docker.elastic.co/kibana/kibana:7.17.9
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - '5601:5601'
+    depends_on:
+      - elasticsearch
+    networks:
+      - ek-net
+
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3.8-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    networks:
+      - ek-net
+
+networks:
+  ek-net:
+    driver: bridge
